@@ -1,4 +1,4 @@
-app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state, TopicFactory) {
+app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) {
 
     return {
         restrict: 'E',
@@ -7,17 +7,11 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state, 
         link: function (scope) {
 
             scope.items = [
-                { label: 'Topics', state: 'topics'},
+                { label: 'OUR WORK', state: 'ourWork'},
+                { label: 'SERVICES', state: 'services'},
+                { label: 'ABOUT US', state: 'aboutUs'},
+                { label: 'CONTACT US', state: 'contactUs'}
             ];
-
-            TopicFactory.fetchAll().then(topics => scope.topics = topics);
-
-            scope.searchForTopic = function(searchTopicName) {
-              $state.go('topics', { 'defaultSearch': searchTopicName });
-              $('#search-dropdown').removeClass('open'); // close search bar
-            }
-
-            scope.user = null;
 
             scope.isLoggedIn = function () {
                 return AuthService.isAuthenticated();

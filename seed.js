@@ -27,18 +27,8 @@ var seedUsers = function () {
 
     var users = [
         {
-            username: 'fullstack',
-            email: 'testing@fsa.com',
-            password: '123'
-        },
-        {
-            username: 'grok',
-            email: 'grok@gmail.com',
-            password: 'grok'
-        },
-        {
-            username: 'John',
-            email: 'j.szymanowski@gmail.com',
+            username: 'SFP',
+            email: 'placeholder@gmail.com',
             password: '1234',
             isAdmin: true
         }
@@ -54,12 +44,6 @@ var seedUsers = function () {
 db.sync({ force: true })
     .then(function () {
       return seedUsers();
-    })
-    .then( function() {
-      return seed.Topics();
-    })
-    .then( function() {
-      return seed.Resources();
     })
     .then(function () {
         console.log(chalk.green('Seed successful!'));

@@ -6,12 +6,6 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 module.exports = db.define('user', {
-    firstname: {
-        type: Sequelize.STRING
-    },
-    lastname: {
-        type: Sequelize.STRING
-    },
     username: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -40,12 +34,6 @@ module.exports = db.define('user', {
     passwordReset: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
-    },
-    facebook_id: {
-        type: Sequelize.STRING
-    },
-    google_id: {
-        type: Sequelize.STRING
     }
 }, {
     instanceMethods: {

@@ -3,14 +3,7 @@ var router = require('express').Router();
 
 module.exports = router;
 
-router.use('/users', require('./user'));
-router.use('/topics', require('./topic'));
-router.use('/resources', require('./resource'));
-router.use('/plans', require('./plan'));
-router.use('/upvote', require('./upvote'));
-router.use('/flags', require('./flag'));
-router.use('/prerequisites', require('./prereq'));
-router.use('/chrome', require('./chrome')); // routes for Chrome extension
+//router.use('/users', require('./user'));
 
 // Make sure this is after all of
 // the registered routes!
