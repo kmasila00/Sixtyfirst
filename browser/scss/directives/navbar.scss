@@ -1,7 +1,6 @@
 navbar {
 
   display: block;
-  background: #222;
   border-bottom: 1px solid black;
   box-shadow: 1px 1px 14px -3px black;
   margin-bottom: 90px;
@@ -9,6 +8,8 @@ navbar {
   .navbar {
       margin-bottom: 0px;
       padding-bottom: 20px;
+      background-color: white;
+      border-bottom: 5px solid black;
   }
 
   .container {
@@ -29,7 +30,7 @@ navbar {
   }
 
   a {
-    color: white;
+    color: black;
     font-size: 16px;
   }
 
@@ -69,6 +70,21 @@ navbar {
     }
 
   }
+
+  // search bar
+  .navbar-form input, .form-inline input {
+  	// width:auto;
+  }
+
+  #search-dropdown {
+    .dropdown-menu {
+    	min-width: 400px;
+      padding:12px;
+      background-color: rgba(255,255,255,0.85);
+    }
+  }
+
+  
 
 
 }
