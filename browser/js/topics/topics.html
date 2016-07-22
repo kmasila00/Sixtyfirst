@@ -1,0 +1,40 @@
+<div class="jumbotron jumbotron-condensed">
+  <div class="container center">
+    <h1>Topics</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <!-- search bar -->
+    <div class="col-md-6 col-sm-8">
+      <input class="form-control" id="filter-bar" placeholder="Filter..." ng-model="searchText" style="width: 100%"/>
+    </div>
+
+    <!-- add new topic-->
+    <div class="col-md-6 col-sm-4" style="text-align: right">
+      <button type="button" class="btn btn-lg btn-default" ng-click="addTopic()">
+        <span class="glyphicon glyphicon-plus" style="font-size: 80%"></span>
+        Add new topic
+      </button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <hr>
+  </div>
+
+  <div class="row">
+
+    <!-- topic display -->
+    <div ng-repeat="topic in topics | filter:searchText">
+      <div class="clearfix" ng-if="$index % 2 == 0"></div> <!-- fixes column<->overflow -->
+      <div class="col-md-6 col-sm-6">
+        <topic-listing topic="topic"></topic-listng>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,162 @@
+navbar {
+
+  display: block;
+  background: #222;
+  border-bottom: 1px solid black;
+  box-shadow: 1px 1px 14px -3px black;
+  margin-bottom: 90px;
+
+  .navbar {
+      margin-bottom: 0px;
+      padding-bottom: 20px;
+  }
+
+  .container {
+    width: 91%;
+    max-width: 1340px;
+    padding-top: 20px;
+  }
+
+  capstone-logo {
+    margin-top: 5px;
+    margin-right: 20px;
+    height: 40px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+    }
+  }
+
+  a {
+    color: white;
+    font-size: 16px;
+  }
+
+  .nav > li > a {
+    cursor: pointer;
+    transition: color 0.2s;
+    &.active {
+      color: darken(#00c0f0, 10%);
+    }
+    &:hover {
+      background: none;
+      color: #00c0f0;
+    }
+    &:focus {
+      background: none;
+    }
+  }
+
+  .login-button {
+    float: right;
+    color: white;
+    border: 1px solid white;
+    margin-top: 10px;
+    background: none;
+    outline: none !important;
+    transition: color 0.2s;
+    &.active {
+      color: darken(#00c0f0, 10%);
+    }
+    &:hover {
+      background: none;
+      color: #00c0f0;
+    }
+    &:focus {
+      background: none;
+      color: #00c0f0;
+    }
+
+  }
+
+  // search bar
+  .navbar-form input, .form-inline input {
+  	// width:auto;
+  }
+
+  #search-dropdown {
+    .dropdown-menu {
+    	min-width: 400px;
+      padding:12px;
+      background-color: rgba(255,255,255,0.85);
+    }
+  }
+
+  
+
+
+}
+
+// sidebar
+#page-wrapper {
+  position: fixed;
+  padding-top: 25px;
+  width:50px;
+  height:100%;
+  z-index: 5;
+}
+
+#page-viewport {
+  position:relative;
+  width:50px;
+  height:100%;
+  transition: .5s ease all;
+}
+
+#sidebar {
+  position: absolute;
+  width: 250px;
+  left:-200px;
+  border-right: 1px solid black;
+  background-color:#333;
+  padding: 5px;
+  top: 0;
+}
+
+#sidebar h3 {
+  display:inline;
+  position:relative;
+  top:5px;
+  left:5px;
+  &.active {
+      color: darken(#00c0f0, 10%);
+  }
+  &:hover {
+      background: none;
+      color: #00c0f0;
+  }
+  &:focus {
+      background: none;
+      color: #00c0f0;
+  }
+
+}
+#sidebar a:hover {
+  text-decoration:none;
+}
+
+#sidebar-header {
+  height: 40px;
+  border-bottom:1px solid #f0f0f0;
+}
+
+#sidebar-page-content {
+  position:absolute;
+  width: -webkit-calc(100% - 50px);
+  left:50px;
+  padding: 5px;
+  transition: .5s ease all;
+}
+
+#page-content {
+  padding: 5px;
+}
+
+#page-wrapper.show-sidebar #page-viewport {
+  -webkit-transform: translateX(200px);
+}
+
+#page-wrapper.show-sidebar #sidebar-page-content {
+  width: -webkit-calc(100% - 250px);
+}

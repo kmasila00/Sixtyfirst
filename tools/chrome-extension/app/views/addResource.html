@@ -1,0 +1,71 @@
+<div class="bubble">
+  Grok learns when you do!  Help me help others by submitting interesting resources to share with the community.
+</div>
+
+<hr>
+
+<form clas="form-horizontal" autocomplete="off">
+  <!-- disable autocomplete in Chrome, which minimizes the extension -->
+  <input style="display:none;" type="text" name="somefakename" />
+  <input style="display:none;" type="password" name="anotherfakename" />
+
+  <div class="row form-group">
+    <label for="topic" class="col-xs-2 control-label">Topic</label>
+    <div class="col-xs-10">
+      <input
+        name="topic"
+        type="text"
+        class="form-control"
+        ng-model="resource.topic"
+        uib-typeahead="topic as topic.title for topic in topics | filter:{title:$viewValue} | limitTo:5"
+        typeahead-template-url="/views/topicTypeahead.html">
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <label for="type" class="col-xs-2 control-label">Type</label>
+    <div class="col-xs-10">
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="article"> article
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="video"> video
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="book"> book
+        </label>
+      </div>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="tutorial"> tutorial
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="documentation"> documentation
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" ng-model="resource.type" value="other" ng-checked="true"> other
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row col-xs-12">
+    <hr>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+      <label class="checkbox-inline">
+        <input type="checkbox" name="addToPlan" ng-model="resource.addToMyPlan" ng-init="resource.addToMyPlan=true"> add this resource to my plan
+      </label>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+      <button type="submit" class="btn btn-primary" ng-click="submitResource(resource)">Add resource</button>
+    </div>
+  </div>
+
+</form>

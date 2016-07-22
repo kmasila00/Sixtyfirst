@@ -1,0 +1,26 @@
+
+<div class="modal-header">
+    <h4 class="modal-title">Flag This {{heading}}</h4>
+</div>
+<div class="modal-body">
+    <form id="formId" name="flagForm" class="form-horizontal">
+      <div class="form-group">
+        <label for="rsn" class="col-sm-3 control-label">Reason for flag: </label>
+        <div class="col-sm-9">
+          <select ng-model="flag.reason" name="type" id='rsn' class="form-control" required>
+            <option ng-repeat='reason in reasons'>{{reason}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for='description' class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-9">
+          <input type='text' id='description' ng-model='flag.description' class="form-control">
+        </div>
+      </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-disabled='flagForm.$invalid' ng-click="flagIt(flag)">Flag {{heading}}</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>

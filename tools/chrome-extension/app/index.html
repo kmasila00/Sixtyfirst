@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/bubble.css" rel="stylesheet">
+    <link href="styles/cloud.css" rel="stylesheet">
+    <link href="bower_components/jqcloud2/dist/jqcloud.min.css" rel="stylesheet">
+  </head>
+  <body ng-app="GrokChrome">
+
+    <div class="row main-row">
+      <div class="col-xs-3 sidebar">
+        <sidebar></sidebar>
+      </div>
+      <div class="col-xs-9">
+        <div id="main" ui-view></div>
+      </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/jqcloud2/dist/jqcloud.min.js"></script>
+    <script src="bower_components/angular-jqcloud/angular-jqcloud.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/states.js"></script>
+    <script src="scripts/services/auth.service.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/login.controller.js"></script>
+    <script src="scripts/controllers/plan.controller.js"></script>
+    <script src="scripts/controllers/resource.controller.js"></script>
+    <script src="scripts/factories/main.factory.js"></script>
+    <script src="scripts/factories/flash.factory.js"></script>
+    <script src="scripts/directives/sidebar.directive.js"></script>
+  </body>
+</html>

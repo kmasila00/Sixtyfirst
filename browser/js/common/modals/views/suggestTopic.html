@@ -1,0 +1,25 @@
+<div class="modal-body">
+  <div class="topic-modal-title">{{ formTitle }}</div>
+  <form name="suggestTopicForm" ng-submit="suggestTopic(suggestionType, newTopicName)" class="form-inline">
+    <div class="input-group" style="width:100%">
+      <input
+         type="text"
+         class="form-control input-lg"
+         placeholder="Search for a topic"
+         ng-model="newTopicName"
+         uib-typeahead="topic.title for topic in topics | filter:$viewValue | limitTo:5"
+         typeahead-template-url="/js/common/modals/views/search-typeahead.html"
+         typeahead-focus-first="false"
+         autofocus>
+       <span class="input-group-btn">
+
+        <button class="btn btn-lg btn-primary" type="submit">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+        </button>
+        <button class="btn btn-lg btn-warning" type="button" ng-click="close()">
+          <span class="glyphicon glyphicon-remove-circle"></span>
+        </button>
+      </span>
+    </div>
+  </form>
+</div>

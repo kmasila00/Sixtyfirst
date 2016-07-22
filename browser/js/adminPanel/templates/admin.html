@@ -1,0 +1,31 @@
+
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <h3>Dashboard<span class='glyphicon glyphicon-dashboard'></span> </h3>
+        <ul class="sidebar-nav">
+            <!-- <li>
+                <a><span class='glyphicon glyphicon-stats'></span> Stats</a>
+            </li> -->
+            <li class="sidebar-brand">
+                <a ui-sref-active="active" ui-sref="admin.users"> <span class='glyphicon glyphicon-user'></span> Users</a>
+            </li>
+            <li>
+                <a ui-sref-active="active" ui-sref="admin.topics"> <span class='glyphicon glyphicon-edit'></span> Topics</a>
+            </li>
+            <li>
+                <a ui-sref-active="active" ui-sref="admin.resources"><span class='glyphicon glyphicon-link' ></span> Resources</a>
+            </li>
+        </ul>
+    </div>
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ui-view></ui-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

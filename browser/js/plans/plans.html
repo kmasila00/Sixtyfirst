@@ -1,0 +1,32 @@
+<div class="jumbotron jumbotron-condensed">
+  <div class="container center">
+
+      <h1>My Learning Plans</h1>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <!-- list of plans -->
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li ng-repeat="plan in plans" id="plan-nav-{{plan.id}}" role="presentation">
+          <a ng-click="showPlan(plan.id)" style="cursor: pointer">
+            {{ plan.name }}
+          </a>
+        </li>
+      </ul>
+      <!-- add new plan-->
+      <hr>
+      <button type="button" class="btn btn-sm btn-default" ng-click="addNewPlan()">Create new learning plan</button>
+    </div>
+
+    <!-- plan display -->
+    <div class="col-md-9">
+      <my-plan plan="currentPlan"></my-plan>
+    </div>
+
+  </div>
+</div>

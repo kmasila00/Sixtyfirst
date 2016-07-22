@@ -1,0 +1,13 @@
+<div class="bubble">
+  {{ bubbleMessage() }}
+  <hr>
+  <select ng-options="plan as plan.name for plan in plans" ng-model="selectedPlan" class="form-control"></select>
+</div>
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item my-plan-list-item" ng-repeat="resource in selectedPlan.resources">
+    <a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+  </li>
+</ul>

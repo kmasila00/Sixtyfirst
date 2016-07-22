@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{ formTitle }}
+  </h4>
+</div>
+
+<div class="modal-body">
+  <form name="addResourceToPlanForm" class="form-horizontal">
+
+  <div class="form-group form-group-lg">
+    <label for="planName" class="col-sm-3 control-label">Learning plan</label>
+    <div class="col-sm-9">
+      <select name="planName" class="form-control input-lg" ng-model="selectedPlan.existing" ng-options="plan.name for plan in plans">
+      </select>
+    </div>
+  </div>
+
+  <!-- create a new plan -->
+  <div ng-if="selectedPlan.existing.id === 0">
+    <hr>
+    <div class="form-group form-group-lg">
+      <label for="planNameNew" class="col-sm-3 control-label">Plan name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control input-lg" placeholder="(new plan)" name="planNameNew" ng-model="selectedPlan.new" autofocus required>
+      </div>
+    </div>
+  </div>
+
+  <!-- show existing resources -->
+  <div ng-if="selectedPlan.existing && selectedPlan.existing.id > 0 && selectedPlan.existing.resources.length">
+    <hr>
+    <h4>Existing resources:</h4>
+    <ul class="list-group">
+      <li class="list-group-item my-plan-list-item" ng-repeat="resource in selectedPlan.existing.resources">
+        {{ resource.name }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-lg btn-primary" type="button" ng-click="addResourceToPlan(selectedPlan, newPlanName)" ng-disabled='addResourceToPlanForm.$invalid'>
+    <span class="glyphicon glyphicon-ok-circle"></span>
+    submit
+  </button>
+  <button class="btn btn-lg btn-danger" type="button" ng-click="close()">
+    <span class="glyphicon glyphicon-remove-circle"></span>
+    cancel
+  </button>
+  </form>
+</div>

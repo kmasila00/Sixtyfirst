@@ -1,0 +1,22 @@
+<img src="../images/icon-256.png" class="logo-img" ui-sref="home">
+<img src="images/logo-text-only.png" class="logo-img" ui-sref="home">
+
+<hr>
+
+<!-- only show if not logged in -->
+<div ng-if="!isLoggedIn()">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a ui-sref="login">login</a></li>
+  </ul>
+  <hr>
+</div>
+
+<!-- only show if logged in -->
+<div ng-if="isLoggedIn()">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a ui-sref="addResource">add resource</a></li>
+    <li role="presentation"><a ui-sref="plans({ userId: user.id })">my learning plans</a></li>
+    <hr>
+    <li role="presentation" ng-click="logout()"><a>logout</a></li>
+  </ul>
+</div>

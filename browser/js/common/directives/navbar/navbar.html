@@ -1,0 +1,74 @@
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navie">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <capstone-logo></capstone-logo>
+    </div>
+
+    <div id="navie" class="navbar-collapse collapse">
+
+      <ul class="nav navbar-nav navbar-left">
+        <!-- search bar -->
+        <li class="dropdown" id="search-dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu">
+            <form class="form-inline form-group-lg">
+              <div class="input-group" style="width:100%">
+                 <input
+               	    type="text"
+                    class="form-control"
+                    placeholder="Search for a topic"
+                    ng-model="searchTopicName"
+                    uib-typeahead="topic.title for topic in topics | filter:$viewValue | limitTo:5"
+                    typeahead-template-url="/js/common/directives/navbar/search-typeahead.html"
+                    typeahead-focus-first="false"
+                    autofocus>
+                 <span class="input-group-btn">
+                   <button type="submit" class="btn btn-lg btn-danger" ng-click="searchForTopic(searchTopicName)">
+                     <i class="glyphicon glyphicon-search"></i>
+                   </button>
+                 </span>
+               </div>
+            </form>
+          </ul>
+        </li>
+        <!-- nav links -->
+        <li ng-repeat="item in items" ng-if="!item.auth || isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
+        </li>
+        <li ng-if='isLoggedIn()'>
+          <a ui-sref-active='active' ui-sref="plans" >My Learning Plans</a>
+        </li>
+        <li ng-if='user.isAdmin'>
+          <a ui-sref-active='active' ui-sref="admin.users" >Admin</a>
+        </li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <!-- user controls -->
+        <!-- logged in -->
+        <li ng-if="user" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-user"></i>
+            &nbsp;{{ user.username }}&nbsp;
+            <i class="glyphicon glyphicon-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" ui-sref="userProfile"><i class="fa fa-user"></i> Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
+           </ul>
+        </li>
+        <!-- not logged in -->
+        <li ng-if="!user"><a ui-sref="signup">Sign up</a></li>
+        <li ng-if="!user"><a ui-sref="login">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
