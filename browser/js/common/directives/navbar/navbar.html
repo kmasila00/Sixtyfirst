@@ -13,8 +13,13 @@
 
       <ul class="nav navbar-nav navbar-left">
         <!-- nav links -->
-        <li ng-repeat="item in items">
-          <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
+        <li ng-repeat="item in items" class="dropdown">
+          <a ng-if="item.dropDown" ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown">{{ item.label }}</a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="{{ item.state }}">SERVICES</a></li>
+            <li><a ui-sref="{{ item.state }}">WHO WE ARE</a></li>
+          </ul>
+          <a ng-if="!item.dropDown" ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
         </li>
       </ul>
 

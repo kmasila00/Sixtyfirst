@@ -7,10 +7,10 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
         link: function (scope) {
 
             scope.items = [
-                { label: 'OUR WORK', state: 'ourWork'},
-                { label: 'SERVICES', state: 'services'},
-                { label: 'ABOUT US', state: 'aboutUs'},
-                { label: 'CONTACT US', state: 'contactUs'}
+                { label: 'OUR WORK', state: 'ourWork', dropDown: false},
+                // { label: 'SERVICES', state: 'services'},
+                { label: 'ABOUT US', state: 'aboutUs', dropDown: true},
+                { label: 'CONTACT US', state: 'contactUs', dropDown: false}
             ];
 
             scope.isLoggedIn = function () {
